@@ -1,3 +1,13 @@
 src
 cypress
 tsconfig.json
+.editorconfig
+.eslintignore
+.eslintrc.js
+.github
+.node-version
+.prettierignore
+.prettierrc.js
+.tool-versions
+cypress.config.ts
+jest.config.js
