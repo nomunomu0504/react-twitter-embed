@@ -45,8 +45,8 @@ jobs:
           cache-name: cache-cypress
         with:
           path: |
-            ~/.cache/Cypress
-          key: ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('~/.cache/Cypress/**/Cypress/Cypress') }}
+            /home/runner/.cache/Cypress
+          key: ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('/home/runner/.cache/Cypress/**/Cypress/Cypress') }}
           restore-keys: |
             ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ env.cache-version }}-${{ runner.os }}-build-
