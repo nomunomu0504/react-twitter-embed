@@ -16,21 +16,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16.x
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        id: node_modules_cache_id
+        uses: actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
           path: |
             ~/.npm
             **/node_modules
+            /home/runner/.cache/Cypress
           key: ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-
@@ -38,6 +40,7 @@ jobs:
             ${{ env.cache-version }}-${{ runner.os }}-
 
       - name: Install Dependencies
+        if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: npm install
 
       - name: Run Lint
