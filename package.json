@@ -31,7 +31,7 @@
     "build": "microbundle --jsx React.createElement --jsxImportSource react --format esm,cjs --sourcemap false",
     "watch": "microbundle --jsx React.createElement --jsxImportSource react --format esm,cjs --watch",
     "cypress:open": "cypress open --component",
-    "cypress:ci": "cypress run-ct",
+    "cypress:ci": "cypress run --component",
     "lint": "run-s lint:prettier lint:eslint",
     "lint:prettier": "prettier --check \"src/**/*.{ts,tsx}\" \"cypress/integrations/**/*.{ts,tsx}\" \"cypress/support/**/*.{ts,tsx}\"",
     "lint:eslint": "eslint --ext .ts,.tsx \"src\" \"cypress/integrations\" \"cypress/support\"",
