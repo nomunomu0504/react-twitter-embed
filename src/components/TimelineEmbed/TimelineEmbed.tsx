@@ -1,16 +1,22 @@
 import * as script from "scriptjs";
-import { useEffect, useRef, useState } from "react";
-import { TweetEmbedProps } from "../types/TweetEmbed/TweetEmbedProps";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { TimelineEmbedOption, TimelineEmbedProps } from "~/components/types/TimelineEmbed";
 
-const processType = "createTweet";
-export const TweetEmbed = ({
-  tweetId,
+const processType = "createTimeline";
+export const TimelineEmbed = ({
   options,
   placeholder,
   onLoad,
-}: TweetEmbedProps): JSX.Element => {
+  ...props
+}: TimelineEmbedProps): JSX.Element => {
   const elementRef = useRef<HTMLDivElement | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const buildOptions = useMemo((): TimelineEmbedOption => {
+    return Object.assign({}, options, {
+      chrome: options?.chrome?.join(" "),
+    });
+  }, [options]);
 
   useEffect(() => {
     if (!isLoading) return;
@@ -27,11 +33,11 @@ export const TweetEmbed = ({
         return;
       }
 
-      const element = await twitterApi(tweetId, elementRef?.current, options);
+      const element = await twitterApi(props, elementRef?.current, buildOptions);
       setIsLoading(false);
       onLoad && onLoad(element);
     });
-  }, [isLoading, onLoad, options, tweetId]);
+  }, [buildOptions, isLoading, onLoad, options, props]);
 
   return (
     <>

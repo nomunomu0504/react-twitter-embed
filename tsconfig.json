@@ -19,7 +19,7 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "~/*": ["src/*"]
     }

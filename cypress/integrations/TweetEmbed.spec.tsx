@@ -1,9 +1,8 @@
 import { mount } from "cypress/react18";
 import { TweetEmbed } from "../../src/components/TweetEmbed";
 
-describe("<TweetEmbed />", () => {
+describe("TwitterEmbed Components", () => {
   it("renders", () => {
-    // see: https://on.cypress.io/mounting-react
     mount(<TweetEmbed tweetId="933354946111705097" />);
     cy.wait(5000);
     cy.getIframeBody().contains("Joe Wright");

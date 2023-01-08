@@ -8,5 +8,5 @@
 
     "types": ["cypress", "node", "cypress-wait-until"]
   },
-  "include": ["./**/*.ts", "./**/**.tsx", "plugins/index.js", "plugins/index.js"]
+  "include": ["./**/*.ts", "./**/**.tsx", "plugins/index.js"]
 }
