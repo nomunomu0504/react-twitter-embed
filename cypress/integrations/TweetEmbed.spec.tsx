@@ -1,7 +1,7 @@
 import { mount } from "cypress/react18";
 import { TweetEmbed } from "../../src/components/TweetEmbed";
 
-describe("TwitterEmbed Components", () => {
+describe("Twitter Embed", () => {
   it("renders", () => {
     mount(<TweetEmbed tweetId="933354946111705097" />);
     cy.wait(5000);

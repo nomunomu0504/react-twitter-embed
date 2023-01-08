@@ -1,4 +1,4 @@
-export type TweetButtonEmbedOption = {
+export type TwitterShareButtonOptions = {
   /**
    * The default, highlighted text a user sees in the Tweet web intent
    *

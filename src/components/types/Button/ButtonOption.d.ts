@@ -1,4 +1,4 @@
-export type ButtonEmbedOption = {
+export type ButtonOption = {
   /**
    * The alignment of the button within an iframe;
    * use this to ensure flush layout when aligning buttons
