@@ -32,28 +32,15 @@ jobs:
           path: |
             ~/.npm
             **/node_modules
+            /home/runner/.cache/Cypress
           key: ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ env.cache-version }}-${{ runner.os }}-build-
             ${{ env.cache-version }}-${{ runner.os }}-
 
-      - name: Cache Cypress
-        id: cypress_cache_id
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-cypress
-        with:
-          path: |
-            /home/runner/.cache/Cypress
-          key: ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('/home/runner/.cache/Cypress/*/Cypress/Cypress') }}
-          restore-keys: |
-            ${{ env.cache-version }}-${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ env.cache-version }}-${{ runner.os }}-build-
-            ${{ env.cache-version }}-${{ runner.os }}-
-
       - name: Install Dependencies
-        if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' && steps.cypress_cache_id.outputs.cache-hit != 'true' }}
+        if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: npm install
 
       - name: Run Lint
