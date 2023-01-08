@@ -2,8 +2,8 @@ name: Deploy to NPM
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "release/v*"
 
 env:
   cache-version: v1
@@ -59,10 +59,15 @@ jobs:
         if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: npm install
 
+      - name: Run Lint
+        run: npm run lint
+
       - name: Run Build
         run: npm run build
+        env:
+          CI: false
 
-      - name: Publish to NPM
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
+      - name: Publish
+        run: npm publish --access=public --workspace packages/use-dropdown
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

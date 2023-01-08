@@ -43,6 +43,9 @@
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"
   },
+  "dependencies": {
+    "scriptjs": "^2.5.9"
+  },
   "devDependencies": {
     "@cypress/webpack-dev-server": "^3.2.2",
     "@cypress/webpack-preprocessor": "^5.16.1",
@@ -70,7 +73,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
-    "scriptjs": "^2.5.9",
     "ts-jest": "^29.0.3",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
