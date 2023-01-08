@@ -1,4 +1,4 @@
-import * as script from "scriptjs";
+import script from "scriptjs";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { TimelineEmbedOption, TimelineEmbedProps } from "~/components/types/TimelineEmbed";
 
@@ -21,7 +21,7 @@ export const TimelineEmbed = ({
   useEffect(() => {
     if (!isLoading) return;
 
-    script.default("https://platform.twitter.com/widgets.js", "twitter-wjs", async () => {
+    script("https://platform.twitter.com/widgets.js", "twitter-wjs", async () => {
       if (!window.twttr) {
         console.error("window.twttr is undefined. canceled process.");
         return;
