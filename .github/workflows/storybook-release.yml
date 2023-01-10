@@ -2,8 +2,8 @@ name: Release Storybook to GitHubPages
 
 on:
   push:
-    tags:
-      - "release/v*"
+    branches:
+      - main
 
 env:
   cache-version: v1
