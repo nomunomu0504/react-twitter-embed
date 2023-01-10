@@ -8,6 +8,10 @@
   <a href="https://www.npmjs.com/package/@nomunomu0504/react-twitter-embed" target="_blank">
     <img src="https://img.shields.io/npm/v/@nomunomu0504/react-twitter-embed.svg" alt="npm">
   </a>
+  
+  <a href="https://nomunomu0504.github.io/react-twitter-embed/" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/storybooks/brand@master/badge/badge-storybook.svg" alt="storybook">
+  </a>
 
   <img src="https://img.shields.io/bundlephobia/min/@nomunomu0504/react-twitter-embed" alt="minified size">
 
