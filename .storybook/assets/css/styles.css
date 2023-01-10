@@ -1,0 +1,14 @@
+.preview-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+}
+
+.content-container {
+  padding: 10px;
+}
+
+.content-container::-webkit-scrollbar {
+  display: none;
+}

@@ -15,6 +15,13 @@ export type TimelineEmbedOption = {
   height?: numner;
 
   /**
+   * Set a fixed width of the embedded widget
+   *
+   * Default: auto
+   */
+  width?: numner;
+
+  /**
    * Render a timeline statically, displaying only n number of Tweets.
    * tweetLimit is allowed between 1 to 20.
    *
